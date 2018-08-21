@@ -4,7 +4,7 @@ There is more than a world of APIs out there...it is actually a Galaxy!
 
 Users can signup for an account and see the APIs our community has voted on.
 
-![Screenshot](Project_2_Framework/views/images/login.png)
+![Screenshot](Project_2_Framework/views/images/table.png)
 
 Even better, users can vote on and even add their own APIs 
 
