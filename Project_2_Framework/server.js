@@ -1,6 +1,5 @@
 
 // References
-var dotenv = require('dotenv').config();
 var express = require("express");
 var session = require("express-session");
 var cookieParser = require("cookie-parser");
@@ -20,6 +19,8 @@ var API = require("./db/apis.js");
 API.sync();
 var User = require("./db/users.js");
 User.sync();
+var Rating = require("./db/ratings.js");
+Rating.sync();
 
 // set up our express application
 app.use(morgan("dev")); // log every request to the console
@@ -44,7 +45,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes 
 require("./app/ejs-routes.js")(app, passport, API); // load our routes and pass in our app and fully configured passport
-require("./app/api-routes.js")(app, API); // load our routes and pass in our app and fully configured passport
+require("./app/api-routes.js")(app, API, Rating); // load our routes and pass in our app and fully configured passport
 
 // launch 
 app.listen(port);

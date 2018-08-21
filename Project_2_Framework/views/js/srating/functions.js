@@ -20,16 +20,19 @@ var vote = [].vote;
       if (this.options.readOnly) {
         return;
       }
-      this.rate.on("mouseover.srating", "a", (function (vstar) {
-        return function (star) {
-          return vstar.syncRating(vstar.getStars().index(star.currentTarget) + 1);
-        };
-      })(this));
-      this.rate.on("mouseout.srating", (function (vstar) {
-        return function () {
-          return vstar.syncRating();
-        };
-      })(this));
+      // ---------------------------------------
+      // Mouse over would erase the saved stars
+      // ---------------------------------------
+      // this.rate.on("mouseover.srating", "a", (function (vstar) {
+      //   return function (star) {
+      //     return vstar.syncRating(vstar.getStars().index(star.currentTarget) + 1);
+      //   };
+      // })(this));
+      // this.rate.on("mouseout.srating", (function (vstar) {
+      //   return function () {
+      //     return vstar.syncRating();
+      //   };
+      // })(this));
       this.rate.on("click.srating", "a", (function (vstar) {
         return function (star) {
           star.preventDefault();
@@ -38,6 +41,7 @@ var vote = [].vote;
       })(this));
       this.rate.on("srating:change", this.options.change);
     }
+
 
     Stars.prototype.getStars = function () {
       return this.rate.find("a");

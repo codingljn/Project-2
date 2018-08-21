@@ -1,8 +1,10 @@
 // Post request new api to be added to database
 $(function () {
-    $("#addIt").click(function (event) {
-        event.preventDefault();
+    $("#addIt").click(function (e) {
+        e.preventDefault();
+
         var newAPI = {
+            uid: $("strong").attr("uid"),
             name: $("#modal-name").val(),
             link: $("#modal-link").val()
         }
@@ -10,9 +12,8 @@ $(function () {
         if (rating) {
             newAPI.rating = rating;
         }
-
-        $.post("/api/add", newAPI).then(data => {
-            console.log("post successful")
+        
+        $.post("/api/add", newAPI).then(function () {
             location.reload();
         });
     });

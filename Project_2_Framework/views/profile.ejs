@@ -15,11 +15,12 @@
     <!-- Link jQuery (must be linked before JS files) -->
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <!-- Link JS -->
-    <script src="js/ratings.js"></script>
+    <script src="js/click-ratings.js"></script>
     <script src="js/modal/create.js"></script>
     <script src="js/modal/add.js"></script>
     <script src="js/srating/functions.js"></script>
     <script src="js/srating/application.js"></script>
+    <script src="js/srating/save-ratings.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
     <div class="container11">
         <header id="header" class="alt">
             <h1>Welcome to Our Community</h1>
-            <strong>Exploring as user</strong>:
+            <strong uid="<%= user.id %>">Exploring as user</strong>:
             <%= user.id %>
                 <a></a>
                 <strong>Username</strong>:
@@ -69,21 +70,21 @@
 
                                 <td align="center" id="avg-rating-<%= apis[i].dataValues.id %>">
                                     <% if (apis[i].dataValues.rating) { %>
-                                        <%= apis[i].dataValues.rating %>
-                                            &nbsp;&nbsp;&nbsp; (
-                                            <%= apis[i].dataValues.numRatings %>
+                                            <%= apis[i].dataValues.rating %>	
+                                            &nbsp;
+                                            ( <%= apis[i].dataValues.numRatings %>
 
-                                                <% if (apis[i].dataValues.numRatings == 1) { %>
-                                                    rating)
-                                                    <% } 
-                                                   else { %>
-                                                        ratings )
-                                                        <% } %>
-                                                            <% } 
-                                                
-										   else { %>
-                                                                Not Rated Yet
-                                                                <% } %>
+                                            <% if (apis[i].dataValues.numRatings == 1) { %>
+                                                    rating )
+                                               <% } 
+                                               else { %> 
+                                                    ratings )
+                                               <% } %>
+                                            <% } 
+                                            
+                                       else { %>
+                                            Not Rated Yet
+                                     <% } %>
                                 </td>
                                 <!-- Stars displayed here -->
                                 <td>

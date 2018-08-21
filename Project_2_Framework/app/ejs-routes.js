@@ -51,20 +51,6 @@ module.exports = function (app, passport, API) {
 		});
 
 	});
-// New route
-	// app.get("/profile", isLoggedIn, function (req, res) {
-	// 	var page = req.query.page;
-	// 	console.log(page);
-	// 	// Get api table
-	// 	API.findAll({ offset: 0, limit: 5 }).then(data => {
-	// 		console.log(data);
-	// 		res.render("profile.ejs", {
-	// 			user: req.user, // get the user out of session and pass to template
-	// 			data: data
-	// 		});
-	// 	});
-
-	// });
 
 	// Logout
 	app.get("/logout", function (req, res) {
